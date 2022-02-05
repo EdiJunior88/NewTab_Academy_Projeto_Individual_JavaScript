@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  border-bottom: 8px solid #333;
+}
+
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.container_cabecalho {
+  background: #E0E0E0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container_cabecalho_imagem {
+  margin-left: 20px;
+}
+
+.container_cabecalho_menu {
+  margin-right: 18px;
+}
+
+.cabecalho_titulo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ||| Menu Hamburguer (Dispositivos Móveis) ||| */
+
+.container_nav_menu {
+  display: none;
+  width: 339px;
+  height: 100%;
+  background: #333;
+  position: fixed;
+  transition: all 0.5s;
+  top: 0%;
+}
+
+.container_nav_menu li:nth-child(1) {
+  margin: 0px;
+}
+
+.container_nav_menu a {
+  text-align: end;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+  padding: 7px 20px 7px 0px;
+  font-size: 16px;
+  line-height: 19px;
+  display: block;
+}
+
+.container_nav_menu li {
+  list-style: none;
+  margin-bottom: 12px;
+  vertical-align: middle;
+}
+
+.container_nav_menu a:hover {
+  color: #333333;
+  background: #C4C4C4;
+  font-weight: 600;
+}
+
+.container_nav_menu ul {
+  position: relative;
+  top: 20px;
+  margin-right: 20px;
+  padding: 0px;
+}
+
+.nav_menu_imagem {
+  margin-left: 20px;
+  margin-bottom: 26px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .container_nav_menu {
+  display: block;
+  transform: translateX(-295px);
+}
+
+/* ||| Container secao (fomrulários e botão) ||| */
+
+.container_secao {
+  width: 100%;
+  height: auto;
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container_secao_texto {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 90%;
+}
+
+.container_secao_entrada {
+  display: flex;
+  width: 100%;
+  height: 32px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+#selecao {
+  width: 100%;
+  padding-left: 7px;
+}
+
+.container_secao_botao {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border-bottom: 1px solid #000;
+  padding-bottom: 28px;
+}
+
+.container_secao_selecao #selecao {
+  width: 100%;
+  margin-left: 6px;
+  background: none;
+}
+
+#mercadoria,
+#valor {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+}
+
+/* ||| Container secao 2 (Extrato de transações) ||| */
+
+.container_secao_2 {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container_secao_2_titulo {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  margin-top: 41px;
+}
+
+/* ||| Container da tabela (div) cabecalho, corpo e rodape ||| */
+
+.container_tabela {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: space-between;
+  padding: 6px 0px;
+  border-bottom: 1px solid #000;
+}
+
+.tabela_titulo {
+  font-weight: bold;
+  margin: 0px 25px;
+}
+
+.tabela_corpo {
+  display: flex;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.tabela_corpo:nth-child(1) {
+  margin: 0px 10px;
+}
+
+.tabela_corpo:nth-child(2) {
+  width: 68%;
+}
+
+.tabela_corpo:nth-child(3) {
+  width: 26.5%;
+  margin-right: 10px;
+  justify-content: flex-end;
+}
+
+.container_tabela:nth-child(6) {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding-bottom: 0px;
+  border-top: 1px solid #000;
+  border-bottom: none;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+.tabela_rodape:nth-child(1) {
+  margin-left: 26px;
+}
+
+.tabela_rodape:nth-child(2) {
+  margin-right: 10px;
+}
+
+.tabela_rodape:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  width: 100%;
+  height: 18px;
+  font-size: 10px;
+  align-items: flex-end;
+}
+
+/* ######### Media Querie (tablet Portrait) ########## */
+
+@media screen and (min-width: 768px) {
+
+  .container_total {
+    margin-top: 20px;
+  }
+
+  /* Menu Hamburguer */
+
+  .container_nav_menu {
+    width: 252px;
+  }
+
+  input[type="checkbox"]:checked ~ .container_nav_menu {
+    display: block;
+    transform: translateX(-210px);
+  }
+
+  /* --------------- */
+
+  .container_secao {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    border: 1px solid #979797;
+    width: 90%;
+    margin: auto;
+  }
+
+  .container_secao::before {
+    content: "Nova transação";
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-size: 18px;
+    margin: 20px 0px;
+    font-weight: bold;
+  }
+
+  .container_secao_texto:nth-child(1),
+  .container_secao_texto:nth-child(3) {
+    width: 19.5%;
+    height: 54px;
+  }
+
+  .container_secao_entrada {
+    margin: 0px;
+  }
+
+  .container_secao_texto:nth-child(2) {
+    width: 45.4%;
+    height: 54px;
+    margin: 0px 20px;
+  }
+
+  .container_secao_botao {
+    width: 90%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border:none;
+    justify-content: flex-end;
+  }
+
+  .button {
+    width: 200px;
+  }
+
+  .button:hover {
+    cursor: pointer;
+  }
+
+  .container_secao_2 {
+    margin-bottom: 427px;
+  }
+  
+  .tabela_rodape:nth-child(1) {
+    margin-left: 40px;
+  }
+
+}
+
+/* ######### Media Querie (Desktop) ########## */
+
+@media screen and (min-width: 1112px) {
+
+  .container_cabecalho {
+    height: 80px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .container_cabecalho_titulo {
+    width: 411px;
+    height: 43px;
+    margin-left: 20px;
+    margin-right: 249px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav_menu_rotulo {
+    display: none;
+  }
+
+  .container_cabecalho .container_nav_menu {
+    width: 350px;
+    height: 40px;
+    background: #FFF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: unset;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container_nav_menu ul {
+    display: flex;
+    position: unset;
+    margin: 0px;
+    top: 0px;
+    padding: 0px;
+  }
+
+  .container_nav_menu a {
+    padding: 0px;
+    color: #333333;
+    font-weight: bold;
+  }
+
+  .container_nav_menu a:hover {
+    cursor: pointer;
+    background: none;
+  }
+
+  .link_cadastro::after {
+    content: "|";
+    margin: 0px 20px;
+  }
+
+
+  .container_nav_menu li {
+    margin: 0px;
+  }
+
+  .container_cabecalho_imagem {
+    margin-left: 20px;
+  }
+
+  .container_total {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-direction: row;
+  }
+
+  .container_secao {
+    width: 400px;
+    height: 344px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    margin-right: 20px;
+  }
+
+  .container_secao::before {
+    margin-bottom: 20px;
+  }
+
+  .container_secao .container_secao_texto,
+  .container_secao_entrada {
+    width: 370px;
+  }
+
+  .container_secao .container_secao_texto {
+    margin: 0px 0px 20px 0px;
+  }
+
+  .container_secao_botao {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .button {
+    width: 370px;
+  }
+
+  /* Section 2 (Extrato de Transações) */
+
+  .container_secao_2 {
+    width: 652px;
+    height: 281px;
+    margin: 0px;
+    justify-content: center;
+  }
+
+  .container_secao_2_titulo {
+    margin: 0px;
+  }
+}
+ 

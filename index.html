@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Controle Financeiro</title>
+</head>
+<body>
+  <cabecalho>
+    <div class="container_cabecalho">
+      <div class="container_cabecalho_imagem">
+        <img class="cabecalho_imagem" src="img/logo.svg" alt="Logo">
+      </div>
+
+      <div class="container_cabecalho_titulo">
+        <span class="cabecalho_titulo">Controle Financeiro</span>
+      </div>
+
+      <!-- Menu Lateral Hamburguer -->
+      
+      <div class="container_cabecalho_menu">
+        <input type="checkbox" id="chec">
+        <label class="nav_menu_rotulo" for="chec">
+          <img src="img/mobile-menu.svg" alt="Menu">
+        </label>
+
+        <nav class="container_nav_menu">
+          <ul>
+            <li>
+              <input type="checkbox" id="chec">
+              <label class="nav_menu_rotulo" for="chec">
+              <img class="nav_menu_imagem" src="img/sidebar-close-btn.svg" alt="Fechar Janela">
+            </li>
+            <li><a class="link_cadastro" href="#">Cadastro de transações</a></li>
+            <li><a class="link_limpar" href="#">Limpar dados</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Transações com Resultado -->
+  <section class="container_total">
+      <section>
+        <div class="container_secao">
+          <div class="container_secao_texto">
+            <div>Tipo de transação</div>
+            <div class="container_secao_entrada">
+              <select name="selecao" id="selecao">
+                <option value="compra" selected>Compra</option>
+                <option value="venda">Venda</option>
+              </select>
+            </div>
+          </div>
+    
+          <div class="container_secao_texto">
+            <div>Nome da mercadoria</div>
+            <div class="container_secao_entrada">
+              <input type="text" name="mercadoria" id="mercadoria" placeholder="entrada">
+            </div>
+          </div>
+    
+          <div class="container_secao_texto">
+            <div>Valor</div>
+            <div class="container_secao_entrada">
+              <input type="number" name="valor" id="valor" placeholder="R$ 0,00">
+            </div>
+          </div>
+    
+          <div class="container_secao_botao">
+            <input class="button" type="button" value="Adicionar transação">
+          </div>
+        </div>
+      </section>
+    
+      <section>
+        <div class="container_secao_2">
+          <div class="container_secao_2_titulo">
+            <p>Extrato de transações</p>
+          </div>
+    
+          <!-- Criando uma tabela com containers (div) separando por cabecalho, corpo e rodape -->
+    
+          <div class="container_tabela">
+            <div class="tabela_titulo">Mercadoria</div>
+            <div class="tabela_titulo">Valor</div>
+          </div>
+    
+          <div class="container_tabela">
+            <div class="tabela_corpo">+</div>
+            <div class="tabela_corpo">Lorem ipsum dolor sit amet consectetur</div>
+            <div class="tabela_corpo">R$ 12.999,99</div>
+          </div>
+    
+          <div class="container_tabela">
+            <div class="tabela_corpo">-</div>
+            <div class="tabela_corpo">Quis nostrud exercitation</div>
+            <div class="tabela_corpo">R$ 99,99</div>
+          </div>
+    
+          <div class="container_tabela">
+            <div class="tabela_corpo">+</div>
+            <div class="tabela_corpo">Lorem ipsum</div>
+            <div class="tabela_corpo">R$ 9,99</div>
+          </div>
+    
+          <div class="container_tabela">
+            <div class="tabela_rodape">Total</div>
+            <div class="tabela_rodape">R$ 12.909,99</div>
+            <div class="tabela_rodape">[LUCRO]</div>
+          </div>
+      </section>
+  </section>
+
+  <!-- Fim da página (rodape) -->
+
+  <footer>
+    <div class="linha_horizontal_rodape"></div>
+  </footer>
+</body>
+</html>
