@@ -1,7 +1,7 @@
 
 //Botão validar os campos (formulários)
 
-/* const botaoValidar = () => {
+const botaoValidar = () => {
   const mercadoria = document.querySelector("#mercadoria");
   const valor = document.querySelector("#valor");
 
@@ -11,6 +11,6 @@
 }
 
 const botao = document.querySelector(".button");
-botao.addEventListener("click", botaoValidar, true); */
+botao.addEventListener("click", botaoValidar, true);
 
 
