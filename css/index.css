@@ -224,7 +224,7 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   justify-content: flex-end;
 }
 
-.container_tabela:nth-child(6) {
+/* .container_tabela:nth-child(6) {
   display: flex;
   justify-content: space-between;
   margin-top: 2px;
@@ -233,7 +233,7 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   border-bottom: none;
   font-weight: bold;
   flex-wrap: wrap;
-}
+} */
 
 .tabela_rodape:nth-child(1) {
   margin-left: 26px;
