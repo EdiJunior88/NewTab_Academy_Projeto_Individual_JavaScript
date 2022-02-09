@@ -35,8 +35,9 @@ let extrato = [
 ]
 
 for (lista in extrato.reverse()) {
-  document.querySelector(".container_tabela").insertAdjacentHTML('afterend', `
-  <div class="container_tabela">
+  console.log(lista)
+  document.querySelector(".container_tabela").insertAdjacentHTML("afterend", `
+  <div class="container_tabela" style="background-color: ${((lista % 2 == 0) ? "#FFF" : "#EEE")}">
     <div class="tabela_corpo">${extrato[lista].simbolo}</div>
     <div class="tabela_corpo">${extrato[lista].mercadoria}</div>
     <div class="tabela_corpo">${extrato[lista].valor}</div>
