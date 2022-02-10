@@ -1,5 +1,5 @@
 
-//Botão validar os campos (formulários)
+/* //Botão validar os campos (formulários)
 
 const botaoValidar = () => {
   let mercadoria = document.querySelector("#mercadoria");
@@ -11,42 +11,38 @@ const botaoValidar = () => {
 }
 
 let botao = document.querySelector(".button");
-botao.addEventListener("click", botaoValidar, true);
+botao.addEventListener("click", botaoValidar, true); */
 
+
+//
+
+let extratoStorage = localStorage.getItem("extrato");
+
+if (extratoStorage != null) {
+  let extrato = JSON.parse(extratoStorage);
+} 
+else {
+  let extrato = [];
+}
 
 // Inclusão dos dados capturados pelo formulario e adicionados no extrato
 // Função na tabela de dados no extrato
 
-let extrato = [
-  {
-    simbolo: "+",
-    mercadoria: "Biscoito",
-    valor: 20.42
-  },
-  {
-    simbolo: "-",
-    mercadoria: "Pão Doce",
-    valor: 10.11
-  },
-  {
-    simbolo: "+",
-    mercadoria: "Bolo de Fubá",
-    valor: 60.65
-  },
-  {
-    simbolo: "-",
-    mercadoria: "Pão de Gergelim",
-    valor: 102.45
-  },
-];
-
 function tabelaExtrato() { 
+  //criando novas linhas da tabela a partir do objeto "extrato"
+  
   for (lista in extrato.reverse()) {
     document.querySelector(".container_tabela").insertAdjacentHTML("afterend", `
-      <div class="container_tabela" style="background-color: ${((lista % 2 == 0) ? "#FFF" : "#EEE")}">
-        <div class="tabela_corpo">${extrato[lista].simbolo}</div>
-        <div class="tabela_corpo">${extrato[lista].mercadoria}</div>
-        <div class="tabela_corpo">${extrato[lista].valor}</div>
+      <div class="container_tabela tabela_dinamica" style="background-color: ${((lista % 2 == 0) ? "#FFF" : "#EEE")}">
+        <div class="tabela_corpo">
+          ${extrato[lista].simbolo}
+        </div>
+        <div class="tabela_corpo">
+          ${extrato[lista].mercadoria}
+        </div>
+        <div class="tabela_corpo">
+          ${extrato[lista].valor}
+        </div>
       </div>
       `)
     }
