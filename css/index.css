@@ -169,6 +169,18 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 }
 
 /* ||| Container secao 2 (Extrato de transações) ||| */
+¨
+tbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+tbody tr {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
 .container_secao_2 {
   width: 100%;
