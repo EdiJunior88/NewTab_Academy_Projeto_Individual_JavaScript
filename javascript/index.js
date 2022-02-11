@@ -23,18 +23,19 @@ let extrato = [
   }
 ];
 
+
 for (lista in extrato) {
-  console.log(`
-  <tr>
-    <td>
-      ${extrato[lista].sinal}
-    </td>
-    <td>
-      ${extrato[lista].mercadoria}
-    </td>
-    <td>
-      ${extrato[lista].valor}
-    </td>
-  </tr>
-  `)
+  document.querySelector("table,.container_tabela tbody tr td").innerHTML += `
+    <tr class="container_tabela">
+      <td class="tabela_corpo">
+        ${extrato[lista].sinal}
+      </td>
+      <td class="tabela_corpo">
+        ${extrato[lista].mercadoria}
+      </td>
+      <td class="tabela_corpo">
+        ${extrato[lista].valor}
+      </td>
+    </tr>
+  `
 }
