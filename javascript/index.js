@@ -20,22 +20,16 @@ let extrato = [
     sinal: "-",
     mercadoria: "Caramelo Achocolatado",
     valor: "25.10"
-  }
+  },
 ];
 
 
 for (lista in extrato) {
-  document.querySelector("table,.container_tabela tbody tr td").innerHTML += `
-    <tr class="container_tabela">
-      <td class="tabela_corpo">
-        ${extrato[lista].sinal}
-      </td>
-      <td class="tabela_corpo">
-        ${extrato[lista].mercadoria}
-      </td>
-      <td class="tabela_corpo">
-        ${extrato[lista].valor}
-      </td>
+  document.querySelector("tbody.container_tabela").innerHTML += `
+    <tr>
+      <td class="tabela_corpo">${extrato[lista].sinal}</td>
+      <td class="tabela_corpo">${extrato[lista].mercadoria}</td>
+      <td class="tabela_corpo">${extrato[lista].valor}</td>
     </tr>
   `
 }

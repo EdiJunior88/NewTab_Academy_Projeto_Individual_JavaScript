@@ -196,13 +196,18 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 .container_tabela {
   display: flex;
   width: 90%;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-items: flex-start;
   align-content: center;
   justify-content: space-between;
   padding: 6px 0px;
   border-bottom: 1px solid #000;
+}
+
+.container_tabela tr {
+  border-bottom: 1px solid;
+  border-collapse: collapse;
 }
 
 .tabela_titulo {
@@ -218,6 +223,9 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 
 .tabela_corpo:nth-child(1) {
   margin: 0px 10px;
+  width: 2%;
+  display: flex;
+  justify-content: center;
 }
 
 .tabela_corpo:nth-child(2) {
