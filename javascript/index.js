@@ -47,8 +47,8 @@ desenhaExtrato();
 //função para deletar os dados do extrato
 
 function deleteLista() {
-  linhasCorrentes = [...document.querySelectorAll("tbody.container_tabela .conteudo_dinamico")];
-  linhasCorrentes.forEach((elemento) => {
+  linhasTabela = [...document.querySelectorAll("tbody.container_tabela .conteudo_dinamico")];
+  linhasTabela.forEach((elemento) => {
     elemento.remove();
   });
 }
