@@ -21,6 +21,7 @@ let extrato = [
   },
 ];
 
+
 // Função para adicionar dados no extrato através dos formulários
 
 function desenhaExtrato() {
@@ -46,11 +47,27 @@ desenhaExtrato();
 
 //função para deletar os dados do extrato
 
-function deleteLista() {
+function deletaLista() {
   linhasTabela = [...document.querySelectorAll("tbody.container_tabela .conteudo_dinamico")];
   linhasTabela.forEach((elemento) => {
     elemento.remove();
   });
 }
 
-document.querySelector(".link_limpar").addEventListener("click", deleteLista);
+document.querySelector(".link_limpar").addEventListener("click", deletaLista);
+
+
+// Função LocalStorage da tabela extrato
+
+function extratoStorage(e) {
+  let listaStorage = localStorage.getItem("extrato");
+
+  if (listaStorage != null) {
+    extrato = JSON.parse(listaStorage);
+  }
+  else {
+    let extrato = [];
+  }
+}
+
+localStorage.setItem("extrato", JSON.stringify(extrato))
