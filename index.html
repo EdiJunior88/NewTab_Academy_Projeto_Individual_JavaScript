@@ -42,14 +42,15 @@
   </header>
 
   <!-- Section Transações com Resultado -->
-  <form class="container_total">
+  <form class="container_total" onsubmit="testaFormulario(event); return false;">
       <section>
         <div class="container_secao">
           <div class="container_secao_texto">
             <div>Tipo de transação</div>
             <div class="container_secao_entrada">
               <select name="selecao" id="selecao">
-                <option value="compra" selected>Compra</option>
+                <option value="seleciona" selected disabled>Selecione uma transação</option>
+                <option value="compra">Compra</option>
                 <option value="venda">Venda</option>
               </select>
             </div>
@@ -70,7 +71,7 @@
           </div>
     
           <div class="container_secao_botao">
-            <input class="button" type="submit" value="Adicionar transação">
+            <input class="button" type="submit" value="Adicionar transação" >
           </div>
         </div>
       </section>

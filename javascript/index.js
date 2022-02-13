@@ -1,21 +1,21 @@
 let extrato = [
   {
-    sinal: "+",
+    sinal: true,
     mercadoria: "Pão de Queijo",
     valor: "10.05"
   },
   {
-    sinal: "-",
+    sinal: false,
     mercadoria: "Bolo de Fubá",
     valor: "2.00"
   },
   {
-    sinal: "+",
+    sinal: true,
     mercadoria: "Pudim de Leite",
     valor: "30.80"
   },
   {
-    sinal: "-",
+    sinal: false,
     mercadoria: "Caramelo Achocolatado",
     valor: "25.10"
   },
@@ -57,17 +57,37 @@ function deletaLista() {
 document.querySelector(".link_limpar").addEventListener("click", deletaLista);
 
 
-// Função LocalStorage da tabela extrato
+// LocalStorage da tabela extrato
 
-function extratoStorage(e) {
+let listaStorage = localStorage.getItem("extrato");
+
+if (listaStorage != null) {
+  extrato = JSON.parse(listaStorage);
+} else {
+  let extrato = [];
+}
+
+localStorage.setItem("extrato", JSON.stringify(extrato));
+
+
+//Função testar formulário
+
+function testaFormulario(e) {
+  e.preventDefault();
+  
   let listaStorage = localStorage.getItem("extrato");
 
   if (listaStorage != null) {
     extrato = JSON.parse(listaStorage);
-  }
-  else {
+  } else {
     let extrato = [];
   }
-}
 
-localStorage.setItem("extrato", JSON.stringify(extrato))
+  extrato.push({
+    sinal: (e.target.elements["sinal"].value == "true"),
+    mercadoria: e.target.elements["mercadoria"].value,
+    valor: e.target.elements["valor"].value
+  });
+
+  console.log(extrato);
+}
