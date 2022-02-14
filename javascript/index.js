@@ -21,14 +21,22 @@ let adicionarTransacao = transacao => {
   <tr>
     <td class="tabela_corpo">+</td>
     <td class="tabela_corpo">${transacao.mercadoria}</td>
-    <td class="tabela_corpo">${sinal} R$${operacao}</td>
+    <td class="tabela_corpo">${sinal} R$ ${operacao}</td>
   </tr>  
   `
   transacaoUl.append(table);
 }
 
-adicionarTransacao(extrato[0])
 
+
+
+//Função para preencher as informações no extrato através do forEach
+
+let inicializar = () => {
+  extrato.forEach(adicionarTransacao)
+}
+
+inicializar()
 
 /* function desenhaExtrato() {
 
