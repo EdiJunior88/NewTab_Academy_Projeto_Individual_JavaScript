@@ -1,35 +1,33 @@
 let extrato = [
-  {
-    sinal: true,
-    mercadoria: "Pão de Queijo",
-    valor: "10.05"
-  },
-  {
-    sinal: false,
-    mercadoria: "Bolo de Fubá",
-    valor: "2.00"
-  },
-  {
-    sinal: true,
-    mercadoria: "Pudim de Leite",
-    valor: "30.80"
-  },
-  {
-    sinal: false,
-    mercadoria: "Caramelo Achocolatado",
-    valor: "25.10"
-  },
+  { id: 1, mercadoria: "Pão de Queijo", valor: -10.05 },
+  { id: 2, mercadoria: "Bolo de Fubá", valor: 20 },
+  { id: 3, mercadoria: "Pudim de Leite", valor: -10 },
+  { id: 4, mercadoria: "Caramelo Achocolatado", valor: 150 }
 ];
 
+//Função para adicionar dados e verificar se o valor é positivo ou negativo
 
-// Função para adicionar dados no extrato através dos formulários
+let adicionarTransacao = transacao => {
+  let sinal = transacao.valor < 0 ? "-" : "+";
+  let classeCSS = transacao.valor < 0 ? "menos" : "mais";
+  let operacao = Math.abs(transacao.valor)
+  let table = document.createElement("tr");
 
-function desenhaExtrato() {
+  table.classList.add(classeCSS);
+  table.innerHTML = `
+  <tr class="conteudo_dinamico">
+    <td class="tabela_corpo">+</td>
+    <td class="tabela_corpo">${transacao.mercadoria}</td>
+    <td class="tabela_corpo">${sinal} R$${operacao}</td>
+  </tr>  
+  `
+  console.log(table)
+}
 
- /*  linhasCorrentes = [...document.querySelectorAll("tbody.container_tabela .conteudo_dinamico")];
-  linhasCorrentes.forEach((elemento) => {
-    elemento.remove();
-  }); */
+adicionarTransacao(extrato[0])
+
+
+/* function desenhaExtrato() {
 
   for (lista in extrato) {
     document.querySelector("tbody.container_tabela").innerHTML += `
@@ -42,52 +40,4 @@ function desenhaExtrato() {
   }
 }
 
-desenhaExtrato();
-
-
-//função para deletar os dados do extrato
-
-function deletaLista() {
-  linhasTabela = [...document.querySelectorAll("tbody.container_tabela .conteudo_dinamico")];
-  linhasTabela.forEach((elemento) => {
-    elemento.remove();
-  });
-}
-
-document.querySelector(".link_limpar").addEventListener("click", deletaLista);
-
-
-// LocalStorage da tabela extrato
-
-let listaStorage = localStorage.getItem("extrato");
-
-if (listaStorage != null) {
-  extrato = JSON.parse(listaStorage);
-} else {
-  let extrato = [];
-}
-
-localStorage.setItem("extrato", JSON.stringify(extrato));
-
-
-//Função testar formulário
-
-function testaFormulario(e) {
-  e.preventDefault();
-  
-  let listaStorage = localStorage.getItem("extrato");
-
-  if (listaStorage != null) {
-    extrato = JSON.parse(listaStorage);
-  } else {
-    let extrato = [];
-  }
-
-  extrato.push({
-    sinal: (e.target.elements["sinal"].value == "true"),
-    mercadoria: e.target.elements["mercadoria"].value,
-    valor: e.target.elements["valor"].value
-  });
-
-  console.log(extrato);
-}
+desenhaExtrato(); */
