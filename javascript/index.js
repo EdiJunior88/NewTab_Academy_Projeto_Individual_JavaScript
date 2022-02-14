@@ -1,3 +1,5 @@
+let transacaoUl = document.querySelector("tbody.container_tabela")
+
 let extrato = [
   { id: 1, mercadoria: "Pão de Queijo", valor: -10.05 },
   { id: 2, mercadoria: "Bolo de Fubá", valor: 20 },
@@ -6,6 +8,7 @@ let extrato = [
 ];
 
 //Função para adicionar dados e verificar se o valor é positivo ou negativo
+//Adicionando uma tr na table
 
 let adicionarTransacao = transacao => {
   let sinal = transacao.valor < 0 ? "-" : "+";
@@ -15,13 +18,13 @@ let adicionarTransacao = transacao => {
 
   table.classList.add(classeCSS);
   table.innerHTML = `
-  <tr class="conteudo_dinamico">
+  <tr>
     <td class="tabela_corpo">+</td>
     <td class="tabela_corpo">${transacao.mercadoria}</td>
     <td class="tabela_corpo">${sinal} R$${operacao}</td>
   </tr>  
   `
-  console.log(table)
+  transacaoUl.append(table);
 }
 
 adicionarTransacao(extrato[0])
