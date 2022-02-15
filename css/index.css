@@ -202,12 +202,25 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   align-content: center;
   justify-content: space-between;
   padding: 6px 0px;
-  border-bottom: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
 }
 
 .container_tabela tr {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #979797;
   border-collapse: collapse;
+}
+
+tfoot.container_tabela {
+  margin-top: -5px;
+  border-top: 1px solid #979797;
+}
+
+tfoot.container_tabela tr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  border: none;
 }
 
 .tabela_titulo {
@@ -250,11 +263,14 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 } */
 
 .tabela_rodape:nth-child(1) {
+  width: 30%;
   margin-left: 26px;
 }
 
 .tabela_rodape:nth-child(2) {
+  width: 50%;
   margin-right: 10px;
+  text-align: end;
 }
 
 .tabela_rodape:nth-child(3) {
