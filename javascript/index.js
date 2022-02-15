@@ -1,4 +1,8 @@
-let transacaoUl = document.querySelector("tbody.container_tabela")
+let transacaoUl = document.querySelector("tbody.container_tabela");
+let exibirResultado = document.querySelector("#tabela_rodape_resultado");
+let formulario = document.querySelector("#formulario1");
+let inputMercadoria = document.querySelector("#mercadoria");
+let inputValor = document.querySelector("#valor");
 
 let extrato = [
   { id: 1, mercadoria: "Pão de Queijo", valor: -10.05 },
@@ -13,7 +17,7 @@ let extrato = [
 let adicionarTransacao = transacao => {
   let sinal = transacao.valor < 0 ? "-" : "+";
   let classeCSS = transacao.valor < 0 ? "menos" : "mais";
-  let operacao = Math.abs(transacao.valor)
+  let operacao = Math.abs(transacao.valor);
   let table = document.createElement("tr");
 
   table.classList.add(classeCSS);
@@ -31,8 +35,11 @@ let adicionarTransacao = transacao => {
 
 let atualizarSaldo = () => {
   let saldoTotal = extrato.map(transacao => transacao.valor);
-  let total = saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0).toFixed(2);
-  console.log(total);
+
+  //Retirando do saldo o sinal negativo (-) com a função Math.abs() 
+  let total = Math.abs(saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0).toFixed(2));
+  
+  exibirResultado.textContent = `R$ ${total}`
 }
 
 
@@ -43,7 +50,22 @@ let inicializar = () => {
   atualizarSaldo();
 }
 
-inicializar()
+inicializar();
+
+//Função para adiconar os valores dos inputs no Extrato
+
+formulario.addEventListener("submit", event => {
+  event.preventDefault();
+
+  //teste para saber se os inputs foram preenchidos
+  if (inputMercadoria.value.trim() === "" || inputValor.value.trim() === "") {
+    alert("Prencha o nome da mercadoria e o valor da transação");
+    return;
+  }
+
+  //executará o código caso os dois inputs forem preenchidos
+  
+})
 
 
 
