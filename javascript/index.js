@@ -31,7 +31,7 @@ let adicionarTransacao = transacao => {
 
 let atualizarSaldo = () => {
   let saldoTotal = extrato.map(transacao => transacao.valor);
-  let total = saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0);
+  let total = saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0).toFixed(2);
   console.log(total);
 }
 
