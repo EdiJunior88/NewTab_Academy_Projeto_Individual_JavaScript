@@ -27,16 +27,29 @@ let adicionarTransacao = transacao => {
   transacaoUl.append(table);
 }
 
+//Função para somar todos os valores para mostrar o saldo (lucro ou perda)
 
+let atualizarSaldo = () => {
+  let saldoTotal = extrato.map(transacao => transacao.valor);
+  let total = saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0);
+  console.log(total);
+}
 
 
 //Função para preencher as informações no extrato através do forEach
 
 let inicializar = () => {
-  extrato.forEach(adicionarTransacao)
+  extrato.forEach(adicionarTransacao);
+  atualizarSaldo();
 }
 
 inicializar()
+
+
+
+
+
+
 
 /* function desenhaExtrato() {
 
