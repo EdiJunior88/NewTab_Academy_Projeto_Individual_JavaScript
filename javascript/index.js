@@ -11,6 +11,29 @@ let extrato = [
   { id: 4, mercadoria: "Caramelo Achocolatado", valor: 150 }
 ];
 
+
+//Função para remover os valores dos inputs
+
+function removerTabela() {
+  deletarLinhas = [...document.querySelectorAll(".container_tabela")];
+  deletarLinhas.forEach((elemento) => {
+    elemento.remove();
+  })
+};
+document.querySelector(".link_limpar").addEventListener("click", removerTabela);
+
+//Inserindo o título da tabela (Mercadoria e Valor)
+
+let tituloTabela = document.querySelector(".container_tabela");
+tituloTabela.insertAdjacentHTML("beforebegin", `
+  <tbody class="container_tabela">
+    <tr>
+      <td class="tabela_titulo">Mercadoria</div>
+      <td class="tabela_titulo">Valor</div>
+    </tr>
+  </tbody>
+`)
+
 //Função para adicionar dados e verificar se o valor é positivo ou negativo
 //Adicionando uma tr na table
 
@@ -18,17 +41,17 @@ let adicionarTransacao = transacao => {
   let sinal = transacao.valor < 0 ? "-" : "+";
   let classeCSS = transacao.valor < 0 ? "menos" : "mais";
   let operacao = Math.abs(transacao.valor);
-  let table = document.createElement("tr");
-
-  table.classList.add(classeCSS);
-  table.innerHTML = `
+  let tabela = document.createElement("tr");
+ 
+  tabela.classList.add(classeCSS);
+  tabela.innerHTML = `
   <tr>
     <td class="tabela_corpo">+</td>
     <td class="tabela_corpo">${transacao.mercadoria}</td>
     <td class="tabela_corpo">${sinal} R$ ${operacao}</td>
   </tr>  
   `
-  transacaoUl.append(table);
+  transacaoUl.append(tabela);
 }
 
 //Função para somar todos os valores para mostrar o saldo (lucro ou perda)
@@ -46,26 +69,48 @@ let atualizarSaldo = () => {
 //Função para preencher as informações no extrato através do forEach
 
 let inicializar = () => {
+  //Limpando antes a tabela no extrato
+  transacaoUl.innerHTML = "";
+
   extrato.forEach(adicionarTransacao);
   atualizarSaldo();
 }
 
 inicializar();
 
-//Função para adiconar os valores dos inputs no Extrato
+//Função para gerar ID's aleatórias
+
+let gerarID = () => Math.round(Math.random() * 1000);
+
+//Função para adiconar os valores dos inputs
 
 formulario.addEventListener("submit", event => {
   event.preventDefault();
 
+  let transacaoMercadoria = inputMercadoria.value.trim();
+  let transacaoValor = inputValor.value.trim();
+
   //teste para saber se os inputs foram preenchidos
-  if (inputMercadoria.value.trim() === "" || inputValor.value.trim() === "") {
+  if (transacaoMercadoria === "" || transacaoValor === "") {
     alert("Prencha o nome da mercadoria e o valor da transação");
     return;
   }
 
   //executará o código caso os dois inputs forem preenchidos
-  
-})
+  let transacao = { 
+    id: gerarID(), 
+    mercadoria: transacaoMercadoria, 
+    valor: Number(transacaoValor) 
+  }
+
+  //Invocando o objeto extrato e adicionando elementos
+  extrato.push(transacao);
+  inicializar();
+
+  //limpar os inputs
+  inputMercadoria.value = "";
+  inputValor.vaue = "";
+});
 
 
 
