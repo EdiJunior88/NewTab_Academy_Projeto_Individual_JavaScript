@@ -15,7 +15,7 @@ let extrato = [
 //Função para remover os valores dos inputs
 
 function removerTabela() {
-  deletarLinhas = [...document.querySelectorAll(".container_tabela")];
+  deletarLinhas = [...document.querySelectorAll("tbody.container_tabela, tfoot")];
   deletarLinhas.forEach((elemento) => {
     elemento.remove();
   })
@@ -23,10 +23,9 @@ function removerTabela() {
 document.querySelector(".link_limpar").addEventListener("click", removerTabela);
 
 //Inserindo o título da tabela (Mercadoria e Valor)
-
 let tituloTabela = document.querySelector(".container_tabela");
 tituloTabela.insertAdjacentHTML("beforebegin", `
-  <tbody class="container_tabela">
+  <tbody class="container_tabela_titulo">
     <tr>
       <td class="tabela_titulo">Mercadoria</div>
       <td class="tabela_titulo">Valor</div>
