@@ -35,11 +35,11 @@ tituloTabela.insertAdjacentHTML("beforebegin", `
       <td class="tabela_titulo">Valor</div>
     </tr>
   </tbody>
-`)
+`
+);
 
 //Função para adicionar dados e verificar se o valor é positivo ou negativo
 //Adicionando uma tr na table
-
 let adicionarTransacao = transacao => {
   let sinal = transacao.valor < 0 ? "-" : "+";
   let classeCSS = transacao.valor < 0 ? "menos" : "mais";
@@ -58,7 +58,6 @@ let adicionarTransacao = transacao => {
 }
 
 //Função para somar todos os valores para mostrar o saldo (lucro ou perda)
-
 let atualizarSaldo = () => {
   let saldoTotal = transacoes.map(transacao => transacao.valor);
 
@@ -68,9 +67,10 @@ let atualizarSaldo = () => {
   exibirResultado.textContent = `R$ ${total}`
 }
 
+//Função para formatar moeda (máscara input de moeda)
+
 
 //Função para preencher as informações no extrato através do forEach
-
 let inicializar = () => {
   //Limpando antes a tabela no extrato
   transacaoUl.innerHTML = "";
@@ -82,17 +82,14 @@ let inicializar = () => {
 inicializar();
 
 //Função para adicionar itens no localStorage
-
 let atualizarLocalStorage = () => {
   localStorage.setItem("transacoes", JSON.stringify(transacoes));
 }
 
 //Função para gerar ID's aleatórias
-
 let gerarID = () => Math.round(Math.random() * 1000);
 
 //Função para adiconar os valores dos inputs
-
 formulario.addEventListener("submit", event => {
   event.preventDefault();
 
@@ -101,7 +98,7 @@ formulario.addEventListener("submit", event => {
 
   //teste para saber se os inputs foram preenchidos
   if (transacaoMercadoria === "" || transacaoValor === "") {
-    alert("Prencha o nome da mercadoria e o valor da transação");
+    alert("Preencha o nome da mercadoria e o valor da transação");
     return;
   }
 
