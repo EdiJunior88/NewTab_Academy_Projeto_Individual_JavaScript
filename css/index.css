@@ -205,6 +205,24 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   /* border-bottom: 1px solid #000; */
 }
 
+.container_tabela_titulo {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0px;
+  border-bottom: 1px solid #979797;
+}
+
+.container_tabela_titulo tr {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .container_tabela tr {
   border-bottom: 1px solid #979797;
   border-collapse: collapse;
