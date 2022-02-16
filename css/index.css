@@ -201,7 +201,7 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   align-items: flex-start;
   align-content: center;
   justify-content: space-between;
-  padding: 6px 0px;
+  padding: 0px;
   /* border-bottom: 1px solid #000; */
 }
 
@@ -211,7 +211,7 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 }
 
 tfoot.container_tabela {
-  margin-top: -5px;
+  margin-top: 2px;
   border-top: 1px solid #979797;
 }
 
@@ -232,6 +232,7 @@ tfoot.container_tabela tr {
   display: flex;
   justify-content: flex-start;
   height: auto;
+  padding: 6px 0px;
 }
 
 .tabela_corpo:nth-child(1) {
