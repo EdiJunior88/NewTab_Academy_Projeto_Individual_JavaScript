@@ -36,7 +36,7 @@
                 <img class="nav_menu_imagem" src="img/sidebar-close-btn.svg" alt="Fechar Janela">
             </li>
             <li><a class="link_cadastro" href="#">Cadastro de transações</a></li>
-            <li><a class="link_limpar" href="#" onclick="removerTabela()">Limpar dados</a></li>
+            <li><a class="link_limpar" href="#" onclick="removeTabela()">Limpar dados</a></li>
           </ul>
         </nav>
       </div>
@@ -45,7 +45,7 @@
 
     <!-- Section Transações com Resultado -->
     <div class="container_total">
-      <form id="formulario1">
+      <form id="formulario_1">
         <section>
           <div class="container_secao">
 
@@ -82,31 +82,27 @@
       </form>
 
       <!-- Criando uma tabela com containers (div) separando por cabecalho, corpo e rodape -->
-      <form id="formulario2">
+      <form id="formulario_2">
         <section>
           <table class="container_secao_2">
-            <thead>
-              <tr>
-                <td class="container_secao_2_titulo">
-                  <p>Extrato de transações</p>
-                </td>
-              </tr>
-            </thead>
+            <tr>
+              <td class="container_secao_2_titulo">
+                <p>Extrato de transações</p>
+              </td>
+            </tr>
 
-            <tbody class="container_tabela">
-              <tr>
-                <td class="tabela_titulo">Mercadoria</div>
-                <td class="tabela_titulo">Valor</div>
-              </tr>
-            </tbody>
-
-            <tfoot class="container_tabela">
+            <tr class="container_tabela">
+              <td class="tabela_titulo">Mercadoria</div>
+              <td class="tabela_titulo">Valor</div>
+            </tr>
+            
+           <!--  <tfoot class="container_tabela">
               <tr>
                 <td class="tabela_rodape">Total</td>
                 <td id="tabela_rodape_resultado" class="tabela_rodape">R$ 12.909,99</td>
                 <td class="tabela_rodape">[LUCRO]</td>
               </tr>
-            </tfoot>
+            </tfoot> -->
 
           </table>
           <!--  <div class="container_tabela">

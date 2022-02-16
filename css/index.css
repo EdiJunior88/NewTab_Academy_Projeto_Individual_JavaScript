@@ -195,14 +195,22 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
 
 .container_tabela {
   display: flex;
-  width: 90%;
-  flex-direction: column;
+  width: 100%;
+  flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-start;
   align-content: center;
   justify-content: space-between;
   padding: 0px;
-  /* border-bottom: 1px solid #000; */
+  border-bottom: 1px solid #000;
+}
+
+tbody {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .container_tabela_titulo {
@@ -246,6 +254,10 @@ tfoot.container_tabela tr {
   margin: 0px 25px;
 }
 
+.tabela_titulo_2 {
+  margin: 0px 25px;
+}
+
 .tabela_corpo {
   display: flex;
   justify-content: flex-start;
@@ -255,13 +267,15 @@ tfoot.container_tabela tr {
 
 .tabela_corpo:nth-child(1) {
   margin: 0px 10px;
-  width: 2%;
+  width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .tabela_corpo:nth-child(2) {
-  width: 68%;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .tabela_corpo:nth-child(3) {
