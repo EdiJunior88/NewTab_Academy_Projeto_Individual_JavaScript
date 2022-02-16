@@ -4,25 +4,29 @@ let formulario = document.querySelector("#formulario1");
 let inputMercadoria = document.querySelector("#mercadoria");
 let inputValor = document.querySelector("#valor");
 
-let extrato = [
+/* let extrato = [
   { id: 1, mercadoria: "Pão de Queijo", valor: -10.05 },
   { id: 2, mercadoria: "Bolo de Fubá", valor: 20 },
   { id: 3, mercadoria: "Pudim de Leite", valor: -10 },
   { id: 4, mercadoria: "Caramelo Achocolatado", valor: 150 }
-];
+]; */
 
+//Função para armazenar os addos no browser (localStorage())
+let localStorageTransacao = JSON.parse(localStorage.getItem("transacoes"));
+let transacoes = localStorage.getItem("transacoes") !== null ? localStorageTransacao : [];
 
-//Função para remover os valores dos inputs
-
-function removerTabela() {
+//Função para remover os valores dos inputs, da tabela extrato e do localStorage
+let removerTabela = () => {
   deletarLinhas = [...document.querySelectorAll("tbody.container_tabela, tfoot")];
   deletarLinhas.forEach((elemento) => {
     elemento.remove();
+    localStorage.clear();
   })
 };
+
 document.querySelector(".link_limpar").addEventListener("click", removerTabela);
 
-//Inserindo o título da tabela (Mercadoria e Valor)
+//Inserindo o título da tabela (Mercadoria e Valor) no extrato de transações
 let tituloTabela = document.querySelector(".container_tabela");
 tituloTabela.insertAdjacentHTML("beforebegin", `
   <tbody class="container_tabela_titulo">
@@ -56,7 +60,7 @@ let adicionarTransacao = transacao => {
 //Função para somar todos os valores para mostrar o saldo (lucro ou perda)
 
 let atualizarSaldo = () => {
-  let saldoTotal = extrato.map(transacao => transacao.valor);
+  let saldoTotal = transacoes.map(transacao => transacao.valor);
 
   //Retirando do saldo o sinal negativo (-) com a função Math.abs() 
   let total = Math.abs(saldoTotal.reduce((acumulador, transacao) => acumulador + transacao, 0).toFixed(2));
@@ -71,11 +75,17 @@ let inicializar = () => {
   //Limpando antes a tabela no extrato
   transacaoUl.innerHTML = "";
 
-  extrato.forEach(adicionarTransacao);
+  transacoes.forEach(adicionarTransacao);
   atualizarSaldo();
 }
 
 inicializar();
+
+//Função para adicionar itens no localStorage
+
+let atualizarLocalStorage = () => {
+  localStorage.setItem("transacoes", JSON.stringify(transacoes));
+}
 
 //Função para gerar ID's aleatórias
 
@@ -103,8 +113,9 @@ formulario.addEventListener("submit", event => {
   }
 
   //Invocando o objeto extrato e adicionando elementos
-  extrato.push(transacao);
+  transacoes.push(transacao);
   inicializar();
+  atualizarLocalStorage();
 
   //limpar os inputs
   inputMercadoria.value = "";
