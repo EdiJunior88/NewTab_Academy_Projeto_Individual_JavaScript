@@ -1,11 +1,22 @@
 let extrato = [];
 
-//Função para salvar os inputs em um array vazio
+//Função para salvar os inputs em um array
+//Adicionar o array "string" em um localStorage
+//Transformar o array em "string"
 function extratoStorage() {
   let mercadoriaFormulario = document.getElementById("mercadoria").value;
+  let valorFormulario = document.getElementById("valor").value;
 
-  extrato.push({"nome_form": mercadoriaFormulario});
-  console.log("EXTRATO >>>>>>>", extrato);
+  extrato.push(
+    {
+      "nomeMercadoria": mercadoriaFormulario,
+      "valorMercadoria": valorFormulario
+    }
+  );
+
+  let extratoString = JSON.stringify(extrato);
+  localStorage.setItem("extrato_formulario", extratoString);
+
 }
 
 
