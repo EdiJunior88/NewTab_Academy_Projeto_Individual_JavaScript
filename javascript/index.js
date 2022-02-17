@@ -1,3 +1,13 @@
+let extrato = [];
+
+//Função para salvar os inputs em um array vazio
+function extratoStorage() {
+  let mercadoriaFormulario = document.getElementById("mercadoria").value;
+
+  extrato.push({"nome_form": mercadoriaFormulario});
+  console.log("EXTRATO >>>>>>>", extrato);
+}
+
 
 //Função de validação dos formulários
 function validacao(event) {
