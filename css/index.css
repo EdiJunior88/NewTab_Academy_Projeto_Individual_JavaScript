@@ -205,6 +205,13 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   border-bottom: 1px solid #000;
 }
 
+.container_tabela_2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: none;
+}
+
 tbody {
   width: 90%;
   display: flex;
