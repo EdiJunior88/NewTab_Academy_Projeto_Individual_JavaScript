@@ -14,32 +14,17 @@ function tabelaExtrato() {
       <td class="tabela_corpo_2">Nenhuma transação cadastrada</td>
     </tr>
     `
-  }
+  };
+
+  tabela.innerHTML += `
+  `
 }
 
 tabelaExtrato();
 
-
-//Função para salvar os inputs em um array
+//Função de validação dos formulários e salvar os inputs em um array
 //Adicionar o array "string" em um localStorage
 //Transformar o array em uma "string"
-function extratoStorage() {
-  let mercadoriaFormulario = document.getElementById("mercadoria").value;
-  let valorFormulario = document.getElementById("valor").value;
-
-  extrato.push(
-    {
-      "nomeMercadoria": mercadoriaFormulario,
-      "valorMercadoria": valorFormulario
-    }
-  );
-
-  let extratoString = JSON.stringify(extrato);
-  localStorage.setItem("extratoFormulario", extratoString);
-}
-
-
-//Função de validação dos formulários
 function validacao(event) {
   event.preventDefault();
 
@@ -57,5 +42,14 @@ function validacao(event) {
     document.getElementById("valor").focus();
     return false;
   }
-}
 
+  extrato.push(
+    {
+      "nomeMercadoria": mercadoriaFormulario,
+      "valorMercadoria": valorFormulario
+    }
+  );
+
+  let extratoString = JSON.stringify(extrato);
+  localStorage.setItem("extratoFormulario", extratoString);
+}
