@@ -189,9 +189,24 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   font-weight: 700;
   line-height: 22px;
   margin-top: 41px;
+  text-align: center;
 }
 
 /* ||| Container da tabela (div) cabecalho, corpo e rodape ||| */
+
+#formulario_2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#tabela {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
 .container_tabela {
   display: flex;

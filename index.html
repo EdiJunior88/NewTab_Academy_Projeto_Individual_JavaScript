@@ -83,22 +83,24 @@
 
       <!-- Criando uma tabela com containers (div) separando por cabecalho, corpo e rodape -->
       <form id="formulario_2">
-        <section>
-          <table class="container_secao_2">
-            <tr>
-              <td class="container_secao_2_titulo">
-                <p>Extrato de transações</p>
-              </td>
-            </tr>
+        <section id="tabela">
+          <div class="container_secao_2_titulo">
+            <p>Extrato de transações</p>
+          </div>
 
-            <tr class="container_tabela">
-              <td class="tabela_titulo">Mercadoria</div>
-              <td class="tabela_titulo">Valor</div>
-            </tr>
-            
-            <tr style="text-align: center;">
+          <table>
+            <thead class="container_secao_2">
+              <tr class="container_tabela">
+                <td class="tabela_titulo">Mercadoria</div>
+                <td class="tabela_titulo">Valor</div>
+              </tr>
+            </thead>
 
-            </tr>
+            <tbody>
+              <tr class="container_tabela_2">
+                <td class="tabela_corpo_2">Nenhuma transação cadastrada</td>
+              </tr>
+            </tbody>
 
            <!--  <tfoot class="container_tabela">
               <tr>
