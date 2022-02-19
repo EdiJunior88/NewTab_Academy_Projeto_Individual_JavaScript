@@ -539,7 +539,7 @@ tfoot.container_tabela tr {
 
   .container_secao_2 {
     width: 652px;
-    height: 281px;
+    /* height: 281px; */
     margin: 0px;
     justify-content: center;
   }

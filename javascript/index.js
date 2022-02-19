@@ -15,26 +15,30 @@ function extratoHTML() {
       return (
       `
       <tr class="container_tabela_2">
-        <td class="tabela_corpo" id="simbolo">+</td>
+        <td class="tabela_corpo simbolo">+</td>
         <td class="tabela_corpo">`+ extrato.nomeMercadoria + `</td>
         <td class="tabela_corpo">R$ `+ extrato.valorMercadoria + `</td>
       </tr>
       `
       )
     }).join("");
-    /* mudarSinal(); */
+    mudarSinal();
   }
 }
 
-/* function mudarSinal() {
+//Função para mudar o sinal conforme o tipo de transação
+function mudarSinal() {
   let extrato = JSON.parse(localStorage.getItem("extrato"));
   i = 0;
-  for(; i < extrato.length; i++) {
-    if (extrato[i]) {
 
+  for (; i < extrato.length; i++) {
+    if (extrato[i].selecaoMercadoria == "compra") {
+      document.getElementsByClassName("simbolo")[i].innerHTML = "-";
+    } else {
+      document.getElementsByClassName("simbolo")[i].innerHTML = "+";
     }
   }
-} */
+}
 
 //Função de validação dos formulários
 //Salvar os inputs em um array
@@ -42,9 +46,15 @@ function extratoHTML() {
 //Transformar o array em uma "string"
 function validacao(event) {
   event.preventDefault();
-
+  
+  let selecao = document.getElementById("selecao").value;
   let mercadoriaFormulario = document.getElementById("mercadoria").value;
   let valorFormulario = document.getElementById("valor").value;
+
+  if(selecao == "seleciona") {
+    alert("Selecione o tipo de transação");
+    return false;
+  }
 
   if(mercadoriaFormulario == "") {
     alert("Preencha o nome");
@@ -60,6 +70,7 @@ function validacao(event) {
 
   extrato.push(
     {
+      "selecaoMercadoria": selecao,
       "nomeMercadoria": mercadoriaFormulario,
       "valorMercadoria": valorFormulario
     }
