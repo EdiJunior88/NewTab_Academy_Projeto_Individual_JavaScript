@@ -46,9 +46,9 @@ function deletaLocalStorage() {
   if(extrato.length <= 0) {
       alert("Nenhum registro de transação")
     } else {
-      let caixatexto = confirm("Deseja excluir as transações?");
+      let caixaTexto = confirm("Deseja excluir as transações?");
     
-      if(caixatexto = true) {
+      if(caixaTexto = true) {
         localStorage.clear();
         alert("Transações excluídas");
       } else {
@@ -59,18 +59,7 @@ function deletaLocalStorage() {
     paginaInicial();
   }
 
-  /* let caixatexto = confirm("Deseja excluir as transações?");
-  
-  if(caixatexto = true) {
-    localStorage.clear();
-    alert("Transações excluídas");
-  } else {
-    alert("Exclusões cancelada");
-  }
-  extratoHTML();
-} */
-
-//Link (Limpar Dados / HTML) fica na espera do evento pelo método addEventListener
+//Link (Limpar Dados - HTML) fica na espera do evento pelo método addEventListener()
 let linkExcluir = document.getElementById("link_limpar");
 linkExcluir.addEventListener("click", deletaLocalStorage)
 
@@ -120,18 +109,3 @@ function validacao(event) {
 function paginaInicial() {
   location.href="./index.html"
 }
-
-
-/* //Adiciona uma mensagem no HTML caso não haja transação
-function mensagemExtrato() {
-  let tabela = document.querySelector("table.container_secao_2 tbody");
-
-  if (extrato.length == 0){
-    tabela.innerHTML += `
-    <tr class="container_tabela_2">
-      <td class="tabela_corpo_2">Nenhuma transação cadastrada</td>
-    </tr>
-    `
-  }
-}
-mensagemExtrato(); */
