@@ -1,6 +1,5 @@
 //Variável para criar o objeto no localStorage
 var extrato = [];
-
 if (localStorage.getItem("extrato")) {
   extrato = JSON.parse(localStorage.getItem("extrato"));
 }
@@ -29,9 +28,8 @@ function extratoHTML() {
 //Função para mudar o sinal conforme o tipo de transação
 function mudarSinal() {
   let extrato = JSON.parse(localStorage.getItem("extrato"));
-  i = 0;
 
-  for (; i < extrato.length; i++) {
+  for (i = 0; i < extrato.length; i++) {
     if (extrato[i].selecaoMercadoria == "compra") {
       document.getElementsByClassName("simbolo")[i].innerHTML = "-";
     } else {
@@ -39,6 +37,42 @@ function mudarSinal() {
     }
   }
 }
+
+//Função para deletar os dados do LocalStorage
+//Se não houver nenhuma transação cadastrada aparece um alert
+//Se houver transação cadastrada a função continua até deletar os dados
+function deletaLocalStorage() {
+
+  if(extrato.length <= 0) {
+      alert("Nenhum registro de transação")
+    } else {
+      let caixatexto = confirm("Deseja excluir as transações?");
+    
+      if(caixatexto = true) {
+        localStorage.clear();
+        alert("Transações excluídas");
+      } else {
+        alert("Exclusões cancelada");
+      }
+    }
+    extratoHTML();
+    paginaInicial();
+  }
+
+  /* let caixatexto = confirm("Deseja excluir as transações?");
+  
+  if(caixatexto = true) {
+    localStorage.clear();
+    alert("Transações excluídas");
+  } else {
+    alert("Exclusões cancelada");
+  }
+  extratoHTML();
+} */
+
+//Link (Limpar Dados / HTML) fica na espera do evento pelo método addEventListener
+let linkExcluir = document.getElementById("link_limpar");
+linkExcluir.addEventListener("click", deletaLocalStorage)
 
 //Função de validação dos formulários
 //Salvar os inputs em um array
@@ -86,6 +120,7 @@ function validacao(event) {
 function paginaInicial() {
   location.href="./index.html"
 }
+
 
 /* //Adiciona uma mensagem no HTML caso não haja transação
 function mensagemExtrato() {
