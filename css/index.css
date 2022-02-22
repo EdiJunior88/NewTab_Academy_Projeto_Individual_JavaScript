@@ -276,6 +276,10 @@ tbody {
   margin: 0px 25px;
 }
 
+.tabela_titulo:nth-child(2){
+  margin-right: 42px;
+}
+
 .tabela_titulo_2 {
   margin: 0px 25px;
 }
@@ -423,10 +427,6 @@ tfoot {
 
   .button:hover {
     cursor: pointer;
-  }
-  
-  .tabela_rodape:nth-child(1) {
-    margin-left: 28px;
   }
 }
 
