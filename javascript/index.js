@@ -56,7 +56,7 @@ var formatter = new Intl.NumberFormat("pt-BR", {
 });
 
 //Função para somar os valores do input (valor)
-//Mostrar o seu total com a frase [LUCRO] ou [PREJUÍZO]
+//Mostrar o seu total com o status [LUCRO] ou [PREJUÍZO]
 function totalExtrato() {
   var total = 0;
   let valorInput;
@@ -70,13 +70,18 @@ function totalExtrato() {
     }
   }
 
-  if (extrato.length >0) {
+  if (extrato.length > 0) {
     document.querySelector("#tabela tfoot").innerHTML += `
-    <tr class="container_tabela">
-      <td class="tabela_rodape">Total</td>
-      <td class="tabela_rodape" id="campoTotal">${formatter.format(total)}</td>
-    </tr>
-    `
+      <tr class="container_tabela_4">
+        <td class="tabela_rodape">Total</td>
+        <td class="tabela_rodape">${formatter.format(total)}</td>
+      </tr>
+      `
+      document.querySelector("#tabela tfoot").innerHTML += `
+      <tr>
+        <td class="tabela_rodape status">${Math.sign(total) > 0 ? "[LUCRO]" : "[PREJUÍZO]"}</td>
+      </tr>
+      `
   }
 }
 
