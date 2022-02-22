@@ -146,7 +146,7 @@ function validacao(event) {
   }
 
   if(mercadoriaFormulario == "") {
-    alert("Preencha o nome");
+    alert("Preencha o nome da mercadoria");
     document.getElementById("mercadoria").focus();
     return false;
   }
