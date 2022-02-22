@@ -22,6 +22,7 @@ function extratoHTML() {
       )
     }).join("");
     mudarSinal();
+    listarTotal();
   }
 }
 
@@ -42,7 +43,6 @@ function mudarSinal() {
 //Se não houver nenhuma transação cadastrada aparece um alert
 //Se houver transação cadastrada a função continua até deletar os dados
 function deletaLocalStorage() {
-
   if(extrato.length <= 0) {
       alert("Nenhum registro de transação")
     } else {
@@ -70,9 +70,9 @@ linkExcluir.addEventListener("click", deletaLocalStorage)
 function validacao(event) {
   event.preventDefault();
   
-  let selecao = document.getElementById("selecao").value;
-  let mercadoriaFormulario = document.getElementById("mercadoria").value;
-  let valorFormulario = document.getElementById("valor").value;
+  var selecao = document.getElementById("selecao").value;
+  var mercadoriaFormulario = document.getElementById("mercadoria").value;
+  var valorFormulario = document.getElementById("valor").value;
 
   if(selecao == "seleciona") {
     alert("Selecione o tipo de transação");
