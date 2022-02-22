@@ -16,7 +16,7 @@ function extratoHTML() {
       <tr class="container_tabela_2">
         <td class="tabela_corpo simbolo">+</td>
         <td class="tabela_corpo">`+ extrato.nomeMercadoria + `</td>
-        <td class="tabela_corpo">R$ `+ extrato.valorMercadoria + `</td>
+        <td class="tabela_corpo">${formatterCurrency(Number(extrato.valorMercadoria))}</td>
       </tr>
       `
       )
@@ -61,12 +61,12 @@ function totalExtrato() {
   var total = 0;
   let valorInput;
 
-  for (valor in extrato) {
-    if (extrato[valor].selecaoMercadoria == "compra") {
-      valorInput = extrato[valor];
-      total -= Number(extrato[valor].valorMercadoria);
+  for (produto in extrato) {
+    if (extrato[produto].selecaoMercadoria == "compra") {
+      valorInput = extrato[produto];
+      total -= Number(extrato[produto].valorMercadoria);
     } else {
-      total += Number(extrato[valor].valorMercadoria);
+      total += Number(extrato[produto].valorMercadoria);
     }
   }
 
@@ -84,6 +84,26 @@ function totalExtrato() {
       `
   }
 }
+
+//Função máscara monetária para o padrão BR
+const padraoNumeros = /[^0-9]/;
+function formatarMoeda() {
+  var elemento = document.getElementById('valor');
+  var valor = elemento.value;
+
+  valor = valor + "";
+  valor = parseInt(valor.replace(/[\D]+/g, ''));
+  valor = valor + "";
+  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+  if (valor.length > 6) {
+      valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+
+  elemento.value = valor;
+  if(valor == 'NaN') elemento.value = '';
+}
+
 
 //Função para deletar os dados do LocalStorage
 //Se não houver nenhuma transação cadastrada aparece um alert
@@ -142,6 +162,8 @@ function validacao(event) {
       "selecaoMercadoria": selecao,
       "nomeMercadoria": mercadoriaFormulario,
       "valorMercadoria": valorFormulario
+      .replaceAll(".", "")
+      .replaceAll(",", "."),
     }
   );
 

@@ -187,7 +187,7 @@ input[type="checkbox"]:checked ~ .container_nav_menu {
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
-  margin-top: 41px;
+  margin-top: 23px;
   text-align: center;
 }
 
@@ -288,33 +288,23 @@ tbody {
   padding: 6px 0px;
 }
 
-.tabela_rodape {
-  margin-right: 10px;
-}
-
-.tabela_rodape:nth-child(1) {
-  margin-left: 25px;
-}
-
-.tabela_rodape.status {
-  margin-top: -19px;
-  font-size: 10px;
-}
-
 .tabela_corpo:nth-child(1) {
   margin: 0px 10px;
+  width: 8.25px;
 }
 
 .tabela_corpo:nth-child(2) {
   justify-content: flex-start;
-  width: 60%;
+  width: 80%;
   word-break: break-all;
 }
 
 .tabela_corpo:nth-child(3) {
-  width: 33.5%;
+  width: 34%;
   margin-right: 10px;
   justify-content: flex-end;
+  text-align: right;
+  word-break: break-all;
 }
 
 tfoot {
@@ -323,6 +313,27 @@ tfoot {
   align-items: flex-end;
   flex-wrap: wrap;
   font-weight: bold;
+}
+
+.tabela_rodape {
+  width: 34%;
+  margin-right: 10px;
+  word-break: break-all;
+}
+
+.tabela_rodape:nth-child(1) {
+  margin-left: 28px;
+}
+
+.tabela_rodape:nth-child(2) {
+  justify-content: flex-end;
+}
+
+.tabela_rodape.status {
+  width: 100%;
+  padding: 0px;
+  margin: -10px 10px 56px 0px;
+  font-size: 10px;
 }
 
 /* .container_tabela:nth-child(6) {
@@ -415,7 +426,7 @@ tfoot {
   }
   
   .tabela_rodape:nth-child(1) {
-    margin-left: 40px;
+    margin-left: 28px;
   }
 }
 
