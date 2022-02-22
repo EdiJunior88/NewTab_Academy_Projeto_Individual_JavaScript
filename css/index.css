@@ -489,7 +489,6 @@ tfoot {
     margin: 0px 20px;
   }
 
-
   .container_nav_menu li {
     margin: 0px;
   }
@@ -530,6 +529,8 @@ tfoot {
   }
 
   .container_secao_botao {
+    justify-content:center;
+    width: 100%;
     padding: 0px;
     margin: 0px;
   }
@@ -539,6 +540,10 @@ tfoot {
   }
 
   /* Section 2 (Extrato de Transações) */
+
+  #formulario_2 {
+    align-content: flex-start;
+  }
 
   .container_secao_2 {
     width: 652px;
