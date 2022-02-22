@@ -86,24 +86,16 @@ function totalExtrato() {
 }
 
 //Função máscara monetária para o padrão BR
-const padraoNumeros = /[^0-9]/;
-function formatarMoeda() {
-  var elemento = document.getElementById('valor');
-  var valor = elemento.value;
-
-  valor = valor + "";
-  valor = parseInt(valor.replace(/[\D]+/g, ''));
-  valor = valor + "";
-  valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-  if (valor.length > 6) {
-      valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-  }
-
-  elemento.value = valor;
-  if(valor == 'NaN') elemento.value = '';
+function formatarMoeda(z) {
+  v = z.value;
+  v=v.replace(/\D/g,"") // permite digitar apenas numero
+  v=v.replace(/(\d{1})(\d{17})$/,"$1.$2") // coloca ponto antes dos ultimos digitos
+  v=v.replace(/(\d{1})(\d{13})$/,"$1.$2") // coloca ponto antes dos ultimos 13 digitos
+  v=v.replace(/(\d{1})(\d{10})$/,"$1.$2") // coloca ponto antes dos ultimos 10 digitos
+  v=v.replace(/(\d{1})(\d{7})$/,"$1.$2") // coloca ponto antes dos ultimos 7 digitos
+  v=v.replace(/(\d{1})(\d{1,4})$/,"$1,$2") // coloca virgula antes dos ultimos 4 digitos
+  z.value = v;
 }
-
 
 //Função para deletar os dados do LocalStorage
 //Se não houver nenhuma transação cadastrada aparece um alert
