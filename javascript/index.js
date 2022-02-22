@@ -22,7 +22,7 @@ function extratoHTML() {
       )
     }).join("");
     mudarSinal();
-    listarTotal();
+    totalExtrato();
   }
 }
 
@@ -36,6 +36,47 @@ function mudarSinal() {
     } else {
       document.getElementsByClassName("simbolo")[i].innerHTML = "+";
     }
+  }
+}
+
+//Função para formatação monetária, nesse caso em moeda brasileira
+function formatterCurrency(value) {
+  const valueFormat = value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+  return valueFormat;
+}
+
+//Método para formatar números de acordo com a localidade
+var formatter = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+  maximumFractionDigits: 2,
+});
+
+//Função para somar os valores do input (valor)
+//Mostrar o seu total com a frase [LUCRO] ou [PREJUÍZO]
+function totalExtrato() {
+  var total = 0;
+  let valorInput;
+
+  for (valor in extrato) {
+    if (extrato[valor].selecaoMercadoria == "compra") {
+      valorInput = extrato[valor];
+      total -= Number(extrato[valor].valorMercadoria);
+    } else {
+      total += Number(extrato[valor].valorMercadoria);
+    }
+  }
+
+  if (extrato.length >0) {
+    document.querySelector("#tabela tfoot").innerHTML += `
+    <tr class="container_tabela">
+      <td class="tabela_rodape">Total</td>
+      <td class="tabela_rodape" id="campoTotal">${formatter.format(total)}</td>
+    </tr>
+    `
   }
 }
 
